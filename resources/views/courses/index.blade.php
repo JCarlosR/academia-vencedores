@@ -33,7 +33,7 @@
       </table>
 <!-- MODAL EDITAR -->
 <div id="modal_edit" class="modal modal-fixed-footer lg">	
-	<form action="/enfermedades" method="POST" enctype="multipart/form-data">
+	<form id="edit" action="#"  method="POST" enctype="multipart/form-data">
 		{{ csrf_field() }}
 		<div class="modal-content">
 			<h8 class="center-align">EDITAR CURSO</h8>
@@ -45,7 +45,7 @@
 					  <label for="first_name">Nombre</label>
 					</div>
 					<div class="input-field">
-					  <input  id="description" name="name" placeholder="Ingrese aqui los apellidos " type="text" class="validate" required>
+					  <input  id="description" name="description" placeholder="Ingrese aqui los apellidos " type="text" class="validate" required>
 					  <label for="first_name">Descripcion</label>
 					</div>						
 				</div>

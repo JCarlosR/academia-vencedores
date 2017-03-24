@@ -24,6 +24,10 @@ class CourseController extends Controller
 
         return back()->with('notification','Usuario registrado exitosamente');
     }
+    public function update($id)
+    {
+        dd("editar curso");
+    }
     public function delete($id)
     {
         $courses = Course::find($id);

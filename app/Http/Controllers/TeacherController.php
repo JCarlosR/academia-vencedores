@@ -46,6 +46,10 @@ class TeacherController extends Controller
 
         return back()->with('notification','Usuario registrado exitosamente');
     }
+    public function update($id)
+    {
+        dd("editar docente");
+    }
     public function delete($id)
     {
         $teacher = Teacher::find($id);

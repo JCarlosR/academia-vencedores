@@ -24,13 +24,16 @@
 			//id
 			var course_id = $(this).data('edit');
 			$('#id').val(course_id);
-			//name
+			//description
 			var description = $(this).parent().prev().text();
 			$('#description').val(description); 
 			//name
 			var name = $(this).parent().prev().prev().text();
 			$('#name').val(name); 
 
+			// alert($("#edit_course").attr("action"));
+			// $("#register").attr("action", "http://www.test.com");
+			
 			$('#modal_edit').modal();
 		}
 

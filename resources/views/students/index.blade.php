@@ -24,7 +24,23 @@
             <td>{{$student->lastName}}</td>
             <td>{{$student->dni}}</td>
             <td>  
-				<a class="btn-floating blue" data-edit="x" href="#modal_edit"><i class="material-icons">edit</i></a>  
+				<a class="btn-floating blue" 
+				   href="#modal_edit"
+
+				   data-edit="{{$student->id}}"
+				   data-name="{{$student->name}}"
+				   data-lastname="{{$student->lastName}}"
+				   data-dni="{{$student->dni}}"
+				   data-address="{{$student->address}}"
+				   {{-- Falta la FECHA --}}
+				   data-sex="{{$student->sex}}" 
+				   data-email="{{$student->email}}"
+				   data-phone="{{$student->phone}}"
+				   data-attorney="{{$student->attorney}}"
+				   data-photo="{{$student->photo}}">
+
+				   <i class="material-icons">edit</i>
+				</a>  
 
 				<a class="btn-floating red"  href="#modal_delete" data-delete="{{$student->id}}"><i class="material-icons">delete</i></a>    
 			</td>
@@ -34,35 +50,36 @@
       </table>
 <!-- MODAL EDITAR -->
 <div id="modal_edit" class="modal modal-fixed-footer lg">	
-	<form action="/enfermedades" method="POST" enctype="multipart/form-data">
+	<form action="/alumno/2/editar" method="POST" enctype="multipart/form-data">
 		{{ csrf_field() }}
 		<div class="modal-content">
-			<h8 class="center-align">EDITAR ALUMNO</h8>
+			<h8 class="center-align">REGISTRAR ALUMNO</h8>
 			<div class="row">
+				<input id="id" type="hidden" name="id">
 				<div class="col s8">
 					<div class="input-field">
-					  <input  name="name" placeholder="Ingrese aqui el nombre " type="text" class="validate" required>
+					  <input  id="name" name="name" placeholder="Ingrese aqui el nombre " type="text" class="validate" required>
 					  <label for="first_name">Nombre</label>
 					</div>
 					<div class="input-field">
-					  <input  name="name" placeholder="Ingrese aqui los apellidos " type="text" class="validate" required>
+					  <input  id="lastName" name="lastName" placeholder="Ingrese aqui los apellidos " type="text" class="validate" required>
 					  <label for="first_name">Apellido</label>
 					</div>
 					<div class="input-field col s6">
-					  <input  name="name" placeholder="Ingrese aqui el DNI " type="number" class="validate" required>
+					  <input  id="dni" name="dni" placeholder="Ingrese aqui el DNI " type="number" class="validate" required>
 					  <label for="first_name">DNI</label>
 					</div>
 					<div class="input-field col s6">
-					  <input  name="name" placeholder="Ingrese aqui su direccion " type="text" class="validate" required>
+					  <input  id="address" name="address" placeholder="Ingrese aqui su direccion " type="text" class="validate" required>
 					  <label for="first_name">Direccion</label>
 					</div>
 					<div class="input-field col s6">
 						<label >Fecha de Nacimiento</label>
-						<input type="date" class="datepicker">
+						<input id="birthdate" name="birthdate" type="date" class="datepicker">
 					</div>
-					<div class="input-field col s6">
-			            <select name="role">
-			                <option value="" disabled selected>Escoja su sexo</option>                
+					<div id="sexo" class="input-field col s6">
+			            <select id="sex" name="sex">
+			                	<option value="" disabled selected>Escoja su sexo</option>                
 			                    <option value="M">Masculino</option>
 			                    <option value="F">Femenino</option>
 			                    <option value="A">Atrofiado</option>
@@ -70,15 +87,15 @@
 			            <label >Sexo</label>
 			        </div>
 					<div class="input-field col s6">
-					  <input  name="" placeholder="Ingrese aqui su E-mail " type="email" class="validate" required>
+					  <input  id="email" name="email" placeholder="Ingrese aqui su E-mail " type="email" class="validate" required>
 					  <label for="first_name">E-mail</label>
 					</div>
 					<div class="input-field col s6">
-					  <input  name="name" placeholder="Ingrese aqui el DNI " type="number" class="validate" required>
+					  <input  id="phone" name="phone" placeholder="Ingrese aqui el DNI " type="number" class="validate" required>
 					  <label for="first_name">Telefono</label>
 					</div>
 					<div class="input-field col s6">
-					  <input  name="name" placeholder="Ingrese aqui su direccion " type="text" class="validate" required>
+					  <input  id="attorney" name="attorney" placeholder="Ingrese aqui su direccion " type="text" class="validate" required>
 					  <label for="first_name">Apoderado</label>
 					</div>
 				</div>
@@ -93,8 +110,8 @@
 					<div class="input-field col s12">
 					   <div class="file-field input-field">
 					      <div class="btn btn-red">
-					        <span >Imagen</span>
-					        <input id="imgInp" name="photo" type="file" required>
+					        <span >Foto</span>
+					        <input id="imgInp" name="photo" type="file" >
 					      </div>
 					      <div class="file-path-wrapper">
 					        <input class="file-path validate" type="text">
@@ -167,7 +184,7 @@
 					<div class="col s12 ">
 					  <div class="card">
 					    <div class="card-image">
-					    <img id="blaho" src="/images/logdo.png" alt="your image" />		    
+					    <img id="blaho" src="/images/no_image.png" alt="your image" />		    
 					    </div>
 					  </div>
 					</div>

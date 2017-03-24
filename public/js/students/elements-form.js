@@ -22,12 +22,42 @@
 				endingTop: '2%' // Ending top style attribute
 			});
 		}
-		function editModal(){        	
-		$('#modal_edit').modal({
-				startingTop: '0%', // Starting top style attribute
-				endingTop: '2%' // Ending top style attribute
-			});
+		
+
+		function editModal(){  
+			
+			var id = $(this).data('edit');
+			var name = $(this).data('name');
+			var lastName = $(this).data('lastname');
+			var dni = $(this).data('dni');
+			var address = $(this).data('address');
+			//falta la fecha
+			var sex = $(this).data('sex');
+			var email = $(this).data('email');
+			var phone = $(this).data('phone');
+			var attorney = $(this).data('attorney');
+			var photo = $(this).data('photo');
+
+			
+			
+			$('#id').val(id);
+			$('#name').val(name);
+			$('#lastName').val(lastName);
+			$('#dni').val(dni);
+			$('#address').val(address);
+			//falta la fecha
+			//FALTA ASIGNAR EL VALOR AL SELECT SEX
+			$('#email').val(email);
+			$('#phone').val(phone);
+			$('#attorney').val(attorney);			
+			$("#blah").attr("src","/images/students/"+id+"."+photo);
+
+			$('#modal_edit').modal({
+					startingTop: '0%', // Starting top style attribute
+					endingTop: '2%' // Ending top style attribute
+				});
 		}
+
 
 		// Preview image registro
 		function read(input) {

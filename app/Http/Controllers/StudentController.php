@@ -49,6 +49,10 @@ class StudentController extends Controller
 
         return back()->with('notification','Usuario registrado exitosamente');
     }
+    public function update()
+    {
+        dd("editar alumno");
+    }
     public function delete($id)
     {
         $students = Student::find($id);
