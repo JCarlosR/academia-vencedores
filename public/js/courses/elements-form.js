@@ -12,14 +12,26 @@
       $(function(){
     		
 			$('[data-add]').on('click',addModal);
-			$('[data-edit]').on('click',editModal);	        	
+			$('[data-edit]').on('click',editModal);	
+			$('[data-delete]').on('click',confirmation);	        	
         });
 
-       function addModal(){        	
+        function addModal(){        	
 		$('#modal_course').modal();
 		}
-		function editModal(){        	
-		$('#modal_edit').modal();
+
+		function editModal(){   
+			//id
+			var course_id = $(this).data('edit');
+			$('#id').val(course_id);
+			//name
+			var description = $(this).parent().prev().text();
+			$('#description').val(description); 
+			//name
+			var name = $(this).parent().prev().prev().text();
+			$('#name').val(name); 
+
+			$('#modal_edit').modal();
 		}
 
 		// Preview image
@@ -39,3 +51,13 @@
 		$("#imgInp").change(function(){
 		    readURL(this);
 		});
+
+		//modal confirmar eliminacion
+		function confirmation(){
+        	//id
+			var course_id = $(this).attr('data-delete');
+			
+			$('#delete').attr("href", "/curso/"+course_id+"/eliminar");
+        	
+        	$('#modal_delete').modal(); 
+        }

@@ -10,44 +10,26 @@
 <table class="table-bordered">
         <thead>
           <tr>
-              <th>NombreE</th>
-              <th>Item Name</th>
-              <th>Item Price</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>DNI</th>
               <th>Opciones</th>
           </tr>
         </thead>
 
         <tbody>
+        @foreach($teachers as $teacher)
           <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
+            <td>{{$teacher->name}}</td>
+            <td>{{$teacher->lastName}}</td>
+            <td>{{$teacher->dni}}</td>
             <td>  
 				<a class="btn-floating blue" data-edit="x" href="#modal_edit"><i class="material-icons">edit</i></a>  
 
-				<a class="btn-floating red"  data-delete="" href="#modal_delete"><i class="material-icons">delete</i></a>    
+				<a class="btn-floating red"  href="#modal_delete" data-delete="{{$teacher->id}}"><i class="material-icons">delete</i></a>    
 			</td>
           </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-            <td>  
-				<a class="btn-floating blue" data-edit="x" href="/docente/"><i class="material-icons">edit</i></a>  
-
-				<a class="btn-floating red"  data-delete="" href="#modal_delete"><i class="material-icons">delete</i></a>    
-			</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
-            <td>  
-				<a class="btn-floating blue" data-edit="x" href="/alumno/"><i class="material-icons">edit</i></a>  
-
-				<a class="btn-floating red"  data-delete="" href="#modal_delete"><i class="material-icons">delete</i></a>    
-			</td>
-          </tr>
+        @endforeach
         </tbody>
       </table>
 <!-- MODAL EDITAR -->
@@ -129,7 +111,7 @@
 </div>
 <!-- MODAL REGISTRO -->
 <div id="modal_teacher" class="modal modal-fixed-footer lg">	
-	<form action="" method="POST" enctype="multipart/form-data">
+	<form method="POST" enctype="multipart/form-data">
 		{{ csrf_field() }}
 		<div class="modal-content">
 			<h8 class="center-align">REGISTRAR DOCENTE</h8>
@@ -209,6 +191,18 @@
 	<a data-add="x" href="#modal_teacher" title="AGREGAR DOCENTE" class="btn-floating btn-large teal">
 		<i class="large material-icons">add</i>
 	</a>
+</div>
+<!-- MODAL ELIMINAR -->
+	<!-- Modal Structure -->
+<div id="modal_delete" class="modal">
+	<div class="modal-content">
+	  <h4>Está seguro que desea eliminar estE DOCENTE?</h4>
+	  <p>Si elimina este DOCENTE se eliminarán tambien sus dependencias</p>
+	</div>
+	<div class="modal-footer">
+	  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">No eliminar</a>
+	  <a id="delete" href="#!" class=" waves-effect waves-light btn red">Eliminar de todas formas</a>
+	</div>
 </div>
 
 @endsection

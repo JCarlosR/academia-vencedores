@@ -12,7 +12,8 @@
       $(function(){
     		
 			$('[data-add]').on('click',addModal);
-			$('[data-edit]').on('click',editModal);	        	
+			$('[data-edit]').on('click',editModal);	  
+			$('[data-delete]').on('click',confirmation);	        	
         });
 
        function addModal(){        	
@@ -28,7 +29,25 @@
 			});
 		}
 
-		// Preview image
+		// Preview image registro
+		function read(input) {
+
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+
+		        reader.onload = function (e) {
+		            $('#blaho').attr('src', e.target.result);
+		        }
+
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInpo").change(function(){
+		    read(this);
+		});
+
+		// Preview image edit
 		function readURL(input) {
 
 		    if (input.files && input.files[0]) {
@@ -45,3 +64,13 @@
 		$("#imgInp").change(function(){
 		    readURL(this);
 		});
+
+		//modal confirmar eliminacion
+		function confirmation(){
+        	//id
+			var student_id = $(this).attr('data-delete');
+			
+			$('#delete').attr("href", "/alumno/"+student_id+"/eliminar");
+        	
+        	$('#modal_delete').modal(); 
+        }

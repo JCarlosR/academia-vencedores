@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+
 @section('links')
     <link rel="stylesheet" href="/css/courses/elements-form.css">
 @endsection
@@ -11,43 +12,23 @@
         <thead>
           <tr>
               <th>Nombre</th>
-              <th>Item Name</th>
-              <th>Item Price</th>
+              <th>Descripcion</th>
               <th>Opciones</th>
           </tr>
         </thead>
 
         <tbody>
+        @foreach($courses as $course)
           <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
+            <td>{{$course->name}}</td>
+            <td>{{$course->description}}</td>
             <td>  
-				<a class="btn-floating blue" data-edit="x" href="#modal_edit"><i class="material-icons">edit</i></a>  
+				<a class="btn-floating blue" data-edit="{{$course->id}}" href="#modal_edit"><i class="material-icons">edit</i></a>  
 
-				<a class="btn-floating red"  data-delete="" href="#modal_delete"><i class="material-icons">delete</i></a>    
+				<a class="btn-floating red"  href="#modal_delete" data-delete="{{$course->id}}"><i class="material-icons">delete</i></a>    
 			</td>
           </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-            <td>  
-				<a class="btn-floating blue" data-edit="x" href="/alumno/"><i class="material-icons">edit</i></a>  
-
-				<a class="btn-floating red"  data-delete="" href="#modal_delete"><i class="material-icons">delete</i></a>    
-			</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
-            <td>  
-				<a class="btn-floating blue" data-edit="x" href="/alumno/"><i class="material-icons">edit</i></a>  
-
-				<a class="btn-floating red"  data-delete="" href="#modal_delete"><i class="material-icons">delete</i></a>    
-			</td>
-          </tr>
+        @endforeach
         </tbody>
       </table>
 <!-- MODAL EDITAR -->
@@ -58,13 +39,14 @@
 			<h8 class="center-align">EDITAR CURSO</h8>
 			<div class="row">
 				<div class="col s8">
+					<input id="id" type="hidden" name="id">
 					<div class="input-field">
-					  <input  name="name" placeholder="Ingrese aqui el nombre " type="text" class="validate" required>
-					  <label for="first_name">Codio</label>
+					  <input  id="name" name="name" placeholder="Ingrese aqui el nombre " type="text" class="validate" required>
+					  <label for="first_name">Nombre</label>
 					</div>
 					<div class="input-field">
-					  <input  name="name" placeholder="Ingrese aqui los apellidos " type="text" class="validate" required>
-					  <label for="first_name">Nombre</label>
+					  <input  id="description" name="name" placeholder="Ingrese aqui los apellidos " type="text" class="validate" required>
+					  <label for="first_name">Descripcion</label>
 					</div>						
 				</div>
 			</div>
@@ -80,7 +62,7 @@
 </div>
 <!-- MODAL REGISTRO -->
 <div id="modal_course" class="modal modal-fixed-footer lg">	
-	<form action="/enfermedades" method="POST" enctype="multipart/form-data">
+	<form method="POST" enctype="multipart/form-data">
 		{{ csrf_field() }}
 		<div class="modal-content">
 			<h8 class="center-align">REGISTRAR CURSO</h8>
@@ -88,11 +70,11 @@
 				<div class="col s8">
 					<div class="input-field">
 					  <input  name="name" placeholder="Ingrese aqui el nombre " type="text" class="validate" required>
-					  <label for="first_name">Codio</label>
+					  <label for="first_name">Nombre</label>
 					</div>
 					<div class="input-field">
-					  <input  name="name" placeholder="Ingrese aqui los apellidos " type="text" class="validate" required>
-					  <label for="first_name">Nombre</label>
+					  <input  name="description" placeholder="Ingrese aqui la descripcion " type="text" class="validate" required>
+					  <label for="first_name">Descripcion</label>
 					</div>						
 				</div>
 			</div>
@@ -111,6 +93,18 @@
 	<a data-add="x" href="#modal_course" title="AGREGAR ENFERMEDAD" class="btn-floating btn-large teal">
 		<i class="large material-icons">add</i>
 	</a>
+</div>
+<!-- MODAL ELIMINAR -->
+	<!-- Modal Structure -->
+<div id="modal_delete" class="modal">
+	<div class="modal-content">
+	  <h4>Está seguro que desea eliminar estE CURSO?</h4>
+	  <p>Si elimina esta especie se eliminarán tambien sus dependencias</p>
+	</div>
+	<div class="modal-footer">
+	  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">No eliminar</a>
+	  <a id="delete" href="#!" class=" waves-effect waves-light btn red">Eliminar de todas formas</a>
+	</div>
 </div>
 
 @endsection

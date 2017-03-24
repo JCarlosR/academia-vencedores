@@ -12,7 +12,8 @@
       $(function(){
     		
 			$('[data-add]').on('click',addModal);
-			$('[data-edit]').on('click',editModal);	        	
+			$('[data-edit]').on('click',editModal);	 
+			$('[data-delete]').on('click',confirmation);	        	
         });
 
        function addModal(){        	
@@ -29,7 +30,7 @@
 		}
 
 		// Preview image Registro
-		function readURL(input) {
+		function read(input) {
 
 		    if (input.files && input.files[0]) {
 		        var reader = new FileReader();
@@ -41,9 +42,8 @@
 		        reader.readAsDataURL(input.files[0]);
 		    }
 		}
-
 		$("#imgInpo").change(function(){
-		    readURL(this);
+		    read(this);
 		});
 
 		// Preview image Edit
@@ -59,7 +59,16 @@
 		        reader.readAsDataURL(input.files[0]);
 		    }
 		}
-
 		$("#imgInp").change(function(){
 		    readURL(this);
 		});
+
+		//modal confirmar eliminacion
+		function confirmation(){
+        	//id
+			var teacher_id = $(this).attr('data-delete');
+			
+			$('#delete').attr("href", "/docente/"+teacher_id+"/eliminar");
+        	
+        	$('#modal_delete').modal(); 
+        }

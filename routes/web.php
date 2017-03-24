@@ -25,11 +25,19 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/alumnos', 'StudentController@index');
 	Route::post('/alumnos', 'StudentController@store');
 
+	Route::get('/alumno/{id}/eliminar', 'StudentController@delete');
+
 	//DOCENTES
 	Route::get('/docentes', 'TeacherController@index');
+	Route::post('/docentes', 'TeacherController@store');
+
+	Route::get('/docente/{id}/eliminar', 'TeacherController@delete');
 
 	//CURSOS
 	Route::get('/cursos', 'CourseController@index');
+	Route::post('/cursos', 'CourseController@store');
+
+	Route::get('/curso/{id}/eliminar', 'CourseController@delete');
 	
 
 });

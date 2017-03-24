@@ -3,28 +3,41 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Student;
+use Intervention\Image\Facades\Image;
+
+
 
 class StudentController extends Controller
 {
     public function index()
     {
-    	return view('students.index');
+    	$students = Student::all();
+    	return view('students.index')->with(compact('students'));
     }
-
     public function store(Request $request)
     {
-    	dd("holi");
+    	
+    	
         //obenemos la extension del archivo
         $extension = $request->file('photo')->getClientOriginalExtension();  
-
+		
         //guardamos en la bd
-        $especies = new Species();
-        $especies->name = $request->input('name');
-        $especies->photo = $extension;
-        $especies->save();
+        $students = new Student();
+        $students->name = $request->input('name');
+        $students->lastName = $request->input('lastName');
+        $students->dni = $request->input('dni');
+        $students->address = $request->input('address');
+        // $students->birthdate = $request->input('birthdate');
+        $students->sex = $request->input('sex');
+        $students->email = $request->input('email');
+        $students->phone = $request->input('phone');
+        $students->attorney = $request->input('attorney');
+        $students->photo = $extension;
+        $students->save();
 
         //obenemos el id del registro
-        $id = $especies->id;
+        $id = $students->id;
 
         //generamos el nombre del archivo (id+extension)
         $file_name = $id.'.'.$extension;    
@@ -32,9 +45,16 @@ class StudentController extends Controller
         //ajustamos y guardamos la imagen en la ruta especificada
         Image::make($request->file('photo'))
                ->resize(250,250)
-               ->save('images/species/'. $file_name);
+               ->save('images/students/'. $file_name);
 
         return back()->with('notification','Usuario registrado exitosamente');
     }
+    public function delete($id)
+    {
+        $students = Student::find($id);
+        $students->delete();
+        return back();
+    }
+    
     
 }

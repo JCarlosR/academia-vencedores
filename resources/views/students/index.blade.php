@@ -11,43 +11,25 @@
         <thead>
           <tr>
               <th>Nombre</th>
-              <th>Item Name</th>
-              <th>Item Price</th>
+              <th>Apellido</th>
+              <th>DNI</th>
               <th>Opciones</th>
           </tr>
         </thead>
 
         <tbody>
+        @foreach($students as $student)
           <tr>
-            <td>Alvin</td>
-            <td>Eclair</td>
-            <td>$0.87</td>
+            <td>{{$student->name}}</td>
+            <td>{{$student->lastName}}</td>
+            <td>{{$student->dni}}</td>
             <td>  
 				<a class="btn-floating blue" data-edit="x" href="#modal_edit"><i class="material-icons">edit</i></a>  
 
-				<a class="btn-floating red"  data-delete="" href="#modal_delete"><i class="material-icons">delete</i></a>    
+				<a class="btn-floating red"  href="#modal_delete" data-delete="{{$student->id}}"><i class="material-icons">delete</i></a>    
 			</td>
           </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-            <td>  
-				<a class="btn-floating blue" data-edit="x" href="/alumno/"><i class="material-icons">edit</i></a>  
-
-				<a class="btn-floating red"  data-delete="" href="#modal_delete"><i class="material-icons">delete</i></a>    
-			</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
-            <td>  
-				<a class="btn-floating blue" data-edit="x" href="/alumno/"><i class="material-icons">edit</i></a>  
-
-				<a class="btn-floating red"  data-delete="" href="#modal_delete"><i class="material-icons">delete</i></a>    
-			</td>
-          </tr>
+        @endforeach
         </tbody>
       </table>
 <!-- MODAL EDITAR -->
@@ -133,7 +115,7 @@
 </div>
 <!-- MODAL REGISTRO -->
 <div id="modal_student" class="modal modal-fixed-footer lg">	
-	<form action="/enfermedades" method="POST" enctype="multipart/form-data">
+	<form action="" method="POST" enctype="multipart/form-data">
 		{{ csrf_field() }}
 		<div class="modal-content">
 			<h8 class="center-align">REGISTRAR ALUMNO</h8>
@@ -144,23 +126,23 @@
 					  <label for="first_name">Nombre</label>
 					</div>
 					<div class="input-field">
-					  <input  name="name" placeholder="Ingrese aqui los apellidos " type="text" class="validate" required>
+					  <input  name="lastName" placeholder="Ingrese aqui los apellidos " type="text" class="validate" required>
 					  <label for="first_name">Apellido</label>
 					</div>
 					<div class="input-field col s6">
-					  <input  name="name" placeholder="Ingrese aqui el DNI " type="number" class="validate" required>
+					  <input  name="dni" placeholder="Ingrese aqui el DNI " type="number" class="validate" required>
 					  <label for="first_name">DNI</label>
 					</div>
 					<div class="input-field col s6">
-					  <input  name="name" placeholder="Ingrese aqui su direccion " type="text" class="validate" required>
+					  <input  name="address" placeholder="Ingrese aqui su direccion " type="text" class="validate" required>
 					  <label for="first_name">Direccion</label>
 					</div>
 					<div class="input-field col s6">
 						<label >Fecha de Nacimiento</label>
-						<input type="date" class="datepicker">
+						<input name="birthdate" type="date" class="datepicker">
 					</div>
 					<div class="input-field col s6">
-			            <select name="role">
+			            <select name="sex">
 			                <option value="" disabled selected>Escoja su sexo</option>                
 			                    <option value="M">Masculino</option>
 			                    <option value="F">Femenino</option>
@@ -169,15 +151,15 @@
 			            <label >Sexo</label>
 			        </div>
 					<div class="input-field col s6">
-					  <input  name="" placeholder="Ingrese aqui su E-mail " type="email" class="validate" required>
+					  <input  name="email" placeholder="Ingrese aqui su E-mail " type="email" class="validate" required>
 					  <label for="first_name">E-mail</label>
 					</div>
 					<div class="input-field col s6">
-					  <input  name="name" placeholder="Ingrese aqui el DNI " type="number" class="validate" required>
+					  <input  name="phone" placeholder="Ingrese aqui el DNI " type="number" class="validate" required>
 					  <label for="first_name">Telefono</label>
 					</div>
 					<div class="input-field col s6">
-					  <input  name="name" placeholder="Ingrese aqui su direccion " type="text" class="validate" required>
+					  <input  name="attorney" placeholder="Ingrese aqui su direccion " type="text" class="validate" required>
 					  <label for="first_name">Apoderado</label>
 					</div>
 				</div>
@@ -185,7 +167,7 @@
 					<div class="col s12 ">
 					  <div class="card">
 					    <div class="card-image">
-					    <img id="blah" src="/images/logdo.png" alt="your image" />		    
+					    <img id="blaho" src="/images/logdo.png" alt="your image" />		    
 					    </div>
 					  </div>
 					</div>
@@ -193,7 +175,7 @@
 					   <div class="file-field input-field">
 					      <div class="btn btn-red">
 					        <span >Imagen</span>
-					        <input id="imgInp" name="photo" type="file" required>
+					        <input id="imgInpo" name="photo" type="file" required>
 					      </div>
 					      <div class="file-path-wrapper">
 					        <input class="file-path validate" type="text">
@@ -217,6 +199,18 @@
 	<a data-add="x" href="#modal_student" title="AGREGAR ENFERMEDAD" class="btn-floating btn-large teal">
 		<i class="large material-icons">add</i>
 	</a>
+</div>
+<!-- MODAL ELIMINAR -->
+	<!-- Modal Structure -->
+<div id="modal_delete" class="modal">
+	<div class="modal-content">
+	  <h4>Está seguro que desea eliminar estE AlUMNO?</h4>
+	  <p>Si elimina este alumno se eliminarán tambien sus dependencias</p>
+	</div>
+	<div class="modal-footer">
+	  <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">No eliminar</a>
+	  <a id="delete" href="#!" class=" waves-effect waves-light btn red">Eliminar de todas formas</a>
+	</div>
 </div>
 
 @endsection
