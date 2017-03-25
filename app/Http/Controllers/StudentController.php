@@ -16,9 +16,7 @@ class StudentController extends Controller
     	return view('students.index')->with(compact('students'));
     }
     public function store(Request $request)
-    {
-    	
-    	
+    {    	
         //obenemos la extension del archivo
         $extension = $request->file('photo')->getClientOriginalExtension();  
 		
@@ -28,7 +26,7 @@ class StudentController extends Controller
         $students->lastName = $request->input('lastName');
         $students->dni = $request->input('dni');
         $students->address = $request->input('address');
-        // $students->birthdate = $request->input('birthdate');
+        $students->birthdate = $request->input('birthdate');
         $students->sex = $request->input('sex');
         $students->email = $request->input('email');
         $students->phone = $request->input('phone');
@@ -49,9 +47,38 @@ class StudentController extends Controller
 
         return back()->with('notification','Usuario registrado exitosamente');
     }
-    public function update()
+    public function update(Request $request)
     {
-        dd("editar alumno");
+        $id = $request->input('id');
+        $students = Student::find($id);
+
+        if($request->file('photo')){
+
+            $extension = $request->file('photo')->getClientOriginalExtension(); 
+            //guardamos en la bd
+            $students->photo = $extension;
+            //generamos el nombre del archivo (id+extension)
+            $file_name = $id.'.'.$extension;    
+
+            //ajustamos y guardamos la imagen en la ruta especificada
+            Image::make($request->file('photo'))
+                   ->resize(250,250)
+                   ->save('images/students/'. $file_name);
+        }
+        //guardamos en la bd
+        $students->name = $request->input('name');
+        $students->lastName = $request->input('lastName');
+        $students->dni = $request->input('dni');
+        $students->address = $request->input('address');
+        $students->birthdate = $request->input('birthdate');
+        $students->sex = $request->input('sex');
+        $students->email = $request->input('email');
+        $students->phone = $request->input('phone');
+        $students->attorney = $request->input('attorney');
+        $students->save();
+
+        return back();
+        
     }
     public function delete($id)
     {

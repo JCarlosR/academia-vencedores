@@ -26,7 +26,7 @@ class TeacherController extends Controller
         $teachers->lastName = $request->input('lastName');
         $teachers->dni = $request->input('dni');
         $teachers->address = $request->input('address');
-        // $teachers->birthdate = $request->input('birthdate');
+        $teachers->birthdate = $request->input('birthdate');
         $teachers->sex = $request->input('sex');
         $teachers->email = $request->input('email');
         $teachers->phone = $request->input('phone');
@@ -46,9 +46,36 @@ class TeacherController extends Controller
 
         return back()->with('notification','Usuario registrado exitosamente');
     }
-    public function update($id)
+    public function update(Request $request)
     {
-        dd("editar docente");
+        $id = $request->input('id');
+        $teachers = Teacher::find($id);
+
+        if($request->file('photo')){
+
+            $extension = $request->file('photo')->getClientOriginalExtension(); 
+            //guardamos en la bd
+            $teachers->photo = $extension;
+            //generamos el nombre del archivo (id+extension)
+            $file_name = $id.'.'.$extension;    
+
+            //ajustamos y guardamos la imagen en la ruta especificada
+            Image::make($request->file('photo'))
+                   ->resize(250,250)
+                   ->save('images/teachers/'. $file_name);
+        }
+        //guardamos en la bd
+        $teachers->name = $request->input('name');
+        $teachers->lastName = $request->input('lastName');
+        $teachers->dni = $request->input('dni');
+        $teachers->address = $request->input('address');
+        $teachers->birthdate = $request->input('birthdate');
+        $teachers->sex = $request->input('sex');
+        $teachers->email = $request->input('email');
+        $teachers->phone = $request->input('phone');
+        $teachers->save();
+
+        return back();
     }
     public function delete($id)
     {

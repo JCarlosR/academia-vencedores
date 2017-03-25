@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/alumnos', 'StudentController@index');
 	Route::post('/alumnos', 'StudentController@store');
 
-	Route::post('/alumno/{id}/editar', 'StudentController@update');
+	Route::post('/alumno/editar', 'StudentController@update');
 
 	Route::get('/alumno/{id}/eliminar', 'StudentController@delete');
 
@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/docentes', 'TeacherController@index');
 	Route::post('/docentes', 'TeacherController@store');
 
-	Route::post('/docente/{id}/editar', 'TeacherController@update');
+	Route::post('/docente/editar', 'TeacherController@update');
 
 	Route::get('/docente/{id}/eliminar', 'TeacherController@delete');
 
@@ -41,7 +41,7 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/cursos', 'CourseController@index');
 	Route::post('/cursos', 'CourseController@store');
 
-	Route::post('/curso/{id}/editar', 'CourseController@update');
+	Route::post('/curso/editar', 'CourseController@update');
 
 	Route::get('/curso/{id}/eliminar', 'CourseController@delete');
 	

@@ -6,7 +6,8 @@
     //select date
       $('.datepicker').pickadate({
 		    selectMonths: true, // Creates a dropdown to control month
-		    selectYears: 15 // Creates a dropdown of 15 years to control year
+		    selectYears: 15, // Creates a dropdown of 15 years to control year
+		    format: 'yyyy-mm-dd'
 		}); 
     //show modal
       $(function(){
@@ -29,7 +30,7 @@
 			var lastName = $(this).data('lastname');
 			var dni = $(this).data('dni');
 			var address = $(this).data('address');
-			//falta la fecha
+			var birthdate = $(this).data('birthdate');
 			var sex = $(this).data('sex');
 			var email = $(this).data('email');
 			var phone = $(this).data('phone');
@@ -42,8 +43,10 @@
 			$('#lastName').val(lastName);
 			$('#dni').val(dni);
 			$('#address').val(address);
-			//falta la fecha
-			//FALTA ASIGNAR EL VALOR AL SELECT SEX
+			$('#birthdate').val(birthdate);
+			Materialize.updateTextFields();//elevar label para mostrar fecha
+            $('#sex').val(sex);
+            $('#sex').material_select();
 			$('#email').val(email);
 			$('#phone').val(phone);		
 			$("#blah").attr("src","/images/teachers/"+id+"."+photo);

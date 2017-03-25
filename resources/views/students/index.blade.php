@@ -32,7 +32,7 @@
 				   data-lastname="{{$student->lastName}}"
 				   data-dni="{{$student->dni}}"
 				   data-address="{{$student->address}}"
-				   {{-- Falta la FECHA --}}
+				   data-birthdate="{{$student->birthdate}}"
 				   data-sex="{{$student->sex}}" 
 				   data-email="{{$student->email}}"
 				   data-phone="{{$student->phone}}"
@@ -50,7 +50,7 @@
       </table>
 <!-- MODAL EDITAR -->
 <div id="modal_edit" class="modal modal-fixed-footer lg">	
-	<form action="/alumno/2/editar" method="POST" enctype="multipart/form-data">
+	<form action="/alumno/editar" method="POST" enctype="multipart/form-data">
 		{{ csrf_field() }}
 		<div class="modal-content">
 			<h8 class="center-align">REGISTRAR ALUMNO</h8>
