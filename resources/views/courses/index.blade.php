@@ -62,14 +62,15 @@
 </div>
 <!-- MODAL REGISTRO -->
 <div id="modal_course" class="modal modal-fixed-footer lg">	
-	<form method="POST" enctype="multipart/form-data">
+	<form action="/cursos" id="formRegisterCourse" method="POST" enctype="multipart/form-data">
 		{{ csrf_field() }}
 		<div class="modal-content">
 			<h8 class="center-align">REGISTRAR CURSO</h8>
 			<div class="row">
 				<div class="col s8">
 					<div class="input-field">
-					  <input  name="name" placeholder="Ingrese aqui el nombre " type="text" class="validate" required>
+					  <input  id="vname" name="name" placeholder="Ingrese aqui el nombre " data-error=".error_name" type="text" class="validate" required>
+					  <div class="error_name"></div>	
 					  <label for="first_name">Nombre</label>
 					</div>
 					<div class="input-field">
@@ -81,7 +82,7 @@
  		</div>
 		<div class="modal-footer">
 			<a href="#!" class=" modal-action modal-close waves-effect waves-red btn-flat">Cerrar</a>
-			<button class="btn waves-effect waves-light" type="submit" name="action">Guardar cambios
+			<button id="btn_register" class="btn waves-effect waves-light" >Guardar cambios
 				<i class="material-icons right">done</i>
 			</button>
 		</div>

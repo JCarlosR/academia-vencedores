@@ -21,8 +21,8 @@ class CourseController extends Controller
         $courses->name = $request->input('name');
         $courses->description = $request->input('description');
         $courses->save();
-
-        return back()->with('notification','Usuario registrado exitosamente');
+        return back()->with('notification','Curso registrado exitosamente');
+       // return response()->json(['error' => false, 'message' => 'Curso registradoy correctamente']);
     }
     public function update(Request $request)
     {

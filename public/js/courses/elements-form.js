@@ -1,13 +1,4 @@
-
-	//select sexo
-      $(document).ready(function() {
-		    $('select').material_select();
-		  });
-    //select date
-      $('.datepicker').pickadate({
-		    selectMonths: true, // Creates a dropdown to control month
-		    selectYears: 15 // Creates a dropdown of 15 years to control year
-		}); 
+var $formRegister
     //show modal
       $(function(){
     		
@@ -16,8 +7,34 @@
 			$('[data-delete]').on('click',confirmation);	        	
         });
 
-        function addModal(){        	
-		$('#modal_course').modal();
+        function addModal(){    
+
+		    $('#modal_course').modal();
+
+            // $formRegister = $('#formRegisterCourse');
+            // $('#btn_register').on('click', function () {
+                
+            //     url = $formRegister.attr('action');
+            //     $.ajax({
+            //         url: url,
+            //         method: 'POST',
+            //         data: $formRegister.serialize()
+            //     })
+            //         .done(function (data) {
+            //             if(data.error)
+            //                 Materialize.toast(data.message, 4000);
+            //             else{
+            //                 Materialize.toast(data.message, 4000);
+            //                 setTimeout(function(){
+            //                     location.reload();
+            //                 }, 2000);
+            //             }
+            //         })
+            //         .fail(function () {
+            //             alert('Ocurrió un error inesperado');
+            //              // Materialize.toast("error XD", 4000);
+            //         });
+            // });
 		}
 
 		function editModal(){   
@@ -36,25 +53,6 @@
 			
 			$('#modal_edit').modal();
 		}
-
-		// Preview image
-		function readURL(input) {
-
-		    if (input.files && input.files[0]) {
-		        var reader = new FileReader();
-
-		        reader.onload = function (e) {
-		            $('#blah').attr('src', e.target.result);
-		        }
-
-		        reader.readAsDataURL(input.files[0]);
-		    }
-		}
-
-		$("#imgInp").change(function(){
-		    readURL(this);
-		});
-
 		//modal confirmar eliminacion
 		function confirmation(){
         	//id
@@ -64,3 +62,28 @@
         	
         	$('#modal_delete').modal(); 
         }
+          
+    $("#formRegisterCourse").validate({
+        rules: {
+            vname: {
+                required: true,
+                minlength: 5
+            },
+        },
+        //For custom messages
+        messages: {
+            uname:{
+                required: "Es necesario que ingrese un nombre",
+                minlength: "Debe ingresar al menos 5 caracteres"
+            },
+        },
+        errorElement : 'div',
+        errorPlacement: function(error, element) {
+          var placement = $(element).data('error');
+          if (placement) {
+            $(placement).append(error)
+          } else {
+            error.insertAfter(element);
+          }
+        }
+     });
