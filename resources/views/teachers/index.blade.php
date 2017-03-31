@@ -81,7 +81,6 @@
 			                <option value="" disabled selected>Escoja su sexo</option>                
 			                    <option value="M">Masculino</option>
 			                    <option value="F">Femenino</option>
-			                    <option value="A">Atrofiado</option>
 			            </select>
 			            <label >Sexo</label>
 			        </div>
@@ -158,7 +157,6 @@
 			                <option value="" disabled selected>Escoja su sexo</option>                
 			                    <option value="M">Masculino</option>
 			                    <option value="F">Femenino</option>
-			                    <option value="A">Atrofiado</option>
 			            </select>
 			            <label >Sexo</label>
 			        </div>
