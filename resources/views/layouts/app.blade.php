@@ -78,7 +78,7 @@
            <div class="col l3 ">
               <!-- Nav Lateral flotante -->
               <ul id="slide-out" class="side-nav">
-                <li><a href="#!">VENCEDORES</a></li>
+                <li><a href="#!">{{ config('app.name', 'Laravel') }}</a></li>
                 <li><div class="divider"></div></li>      
                 <li><a class="waves-effect" href="#!">Alumno<i class="material-icons">assignment_ind</i></a></li>
                 <li><a class="waves-effect" href="#!">Docente<i class="material-icons">person_pin</i></a></li>
@@ -92,9 +92,8 @@
                       <a class="collapsible-header">Gestion<i class="material-icons">settings</i></a>
                       <div class="collapsible-body">
                         <ul>
-                          <li><a href="#!">Docentes</a></li>
-                          <li><a href="#!">Alumnos</a></li>
-                          <li><a href="#!">Cursos</a></li>
+                          <li><a href="#!">Configuración</a></li>
+                          <li><a href="#!">Acerca de</a></li>
                         </ul>
                       </div>
                     </li>
@@ -106,8 +105,7 @@
                       <a class="collapsible-header">Reportes<i class="material-icons">description</i></a>
                       <div class="collapsible-body">
                         <ul>
-                          <li><a href="#!">Docentes</a></li>
-                          <li><a href="#!">Alumnos</a></li>
+                          <li><a href="#!">Matrículas</a></li>
                           <li><a href="#!">Notas</a></li>
                         </ul>
                       </div>
@@ -117,13 +115,13 @@
               </ul>  
               <!-- Nav Lateral estatico -->
               <ul id="nav-mobile" class="side-nav fixed" >
-                <li><a href="/home">VENCEDORES</a></li>
+                <li><a href="/home">{{ config('app.name', 'Laravel') }}</a></li>
                 <li><div class="divider"></div></li>      
                 <li><a class="waves-effect" href="/alumnos">Alumno<i class="material-icons">assignment_ind</i></a></li>
                 <li><a class="waves-effect" href="/docentes">Docente<i class="material-icons">person_pin</i></a></li>
                 <li><a class="waves-effect" href="/cursos">Curso<i class="material-icons">library_books</i></a></li>
-                <li><a class="waves-effect" href="#!">Matricula<i class="material-icons">mode_edit</i></a></li>      
-                <li><a class="waves-effect" href="#!">Notas<i class="material-icons">assignment_ind</i></a></li>
+                <li><a class="waves-effect" href="/matricula">Matricula<i class="material-icons">mode_edit</i></a></li>
+                <li><a class="waves-effect" href="/notas">Notas<i class="material-icons">assignment_ind</i></a></li>
                 <li><div class="divider"></div></li> 
                 <li>
                   <ul class="collapsible collapsible-accordion">
@@ -131,9 +129,8 @@
                       <a class="collapsible-header">Gestion<i class="material-icons">settings</i></a>
                       <div class="collapsible-body">
                         <ul>
-                          <li><a href="#!">Docentes</a></li>
-                          <li><a href="#!">Alumnos</a></li>
-                          <li><a href="#!">Cursos</a></li>
+                            <li><a href="#!">Configuración</a></li>
+                            <li><a href="#!">Acerca de</a></li>
                         </ul>
                       </div>
                     </li>
@@ -145,9 +142,8 @@
                       <a class="collapsible-header">Reportes<i class="material-icons">description</i></a>
                       <div class="collapsible-body">
                         <ul>
-                          <li><a href="#!">Docentes</a></li>
-                          <li><a href="#!">Alumnos</a></li>
-                          <li><a href="#!">Notas</a></li>
+                            <li><a href="#!">Matrículas</a></li>
+                            <li><a href="#!">Notas</a></li>
                         </ul>
                       </div>
                     </li>
