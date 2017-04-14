@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Los Vencedores</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -18,8 +18,7 @@
             <a id="logo-container" href="{{ url('/') }}" class="brand-logo">{{ config('app.name', 'Laravel') }}</a>
 
             <ul class="right hide-on-med-and-down">
-                <!-- <li><a href="{{ url('/login') }}">Ingresar</a></li> -->
-                <li><a href="{{ url('/register') }}">Registro</a></li>
+                <li><a href="{{ url('/login') }}">Ingresar</a></li>
             </ul>
             <ul id="nav-mobile" class="side-nav">
                 <li><a href="{{ url('/login') }}">Ingresar</a></li>
@@ -30,13 +29,20 @@
     <div class="section no-pad-bot" id="index-banner">
         <div class="container">
             
-            <h1 class="header center orange-text">Bienvenido a la Academia "Los Vencedores"</h1>
+            <h1 class="header center orange-text">
+                Bienvenido a la Academia
+                <br>
+                Pre-Policiar
+                <br>
+                "Los Vencedores"
+            </h1>
             <div class="row center">
-                <h5 class="header col s12 light">Academia pre universitaria</h5>
+                <h5 class="header col s12 light">Academia pre policial</h5>
+                <img src="{{ asset('images/escudo.png') }}" alt="Escudo de la academia" height="260">
             </div>
             <div class="row center">
                 <a href="{{ route('login') }}" id="download-button" class="btn-large waves-effect waves-light orange">
-                    Ingresar al sistema
+                    Accede al sistema
                 </a>
             </div>
             
@@ -51,26 +57,24 @@
                 <div class="col s12 m4">
                     <div class="icon-block">
                         <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
-                        <h5 class="center">Speeds up development</h5>
-                        <p class="light">We did most of the heavy lifting for you to provide a default stylings that incorporate our custom components. Additionally, we refined animations and transitions to provide a smoother experience for developers.</p>
+                        <h5 class="center">Misión</h5>
+                        <p class="light">La Academia Pre-Policial Los Vencedores, es una Institución Educativa que tiene la misión de preparar, capacitar, orientar y entrenar adecuadamente a todos los alumnos que desean ingresar con éxito a la Policía Nacional. Utilizando métodos educativos modernos, acorde con la realidad nacional, contando para ello, con personal docente e instructores policiales altamente calificados.</p>
                     </div>
                 </div>
 
                 <div class="col s12 m4">
                     <div class="icon-block">
                         <h2 class="center light-blue-text"><i class="material-icons">group</i></h2>
-                        <h5 class="center">User Experience Focused</h5>
-
-                        <p class="light">By utilizing elements and principles of Material Design, we were able to create a framework that incorporates components and animations that provide more feedback to users. Additionally, a single underlying responsive system across all platforms allow for a more unified user experience.</p>
+                        <h5 class="center">Visión</h5>
+                        <p class="light">En el 2020 ser una entidad reconocida por su excelencia en innovación con un talento humano íntegro y competente, basados en la enseñanza de principios morales y disciplina, creando conciencia de contracción al estudio y amor a la patria, logrando el ingreso de nuestros alumnos a la escuela de formación de la Policía Nacional del Perú.</p>
                     </div>
                 </div>
 
                 <div class="col s12 m4">
                     <div class="icon-block">
                         <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
-                        <h5 class="center">Easy to work with</h5>
-
-                        <p class="light">We have provided detailed documentation as well as specific code examples to help new users get started. We are also always open to feedback and can answer any questions a user may have about Materialize.</p>
+                        <h5 class="center">Propuesta de valor</h5>
+                        <p class="light">La academia Pre-Policial Los Vencedores forma estudiantes de nivel con un pensamiento crítico, creativo y moral desarrollado a través de metodologías didácticas, que le permiten comprender la realidad y enfrentar un mundo cambiante, con personal competente mediante el mejoramiento continuo y procesos pedagógicos-físicos que generan altos niveles en estándares de calidad educativa.</p>
                     </div>
                 </div>        
             </div>
@@ -82,11 +86,11 @@
         <div class="container">
             <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Acerca de</h5>
-                    <p class="grey-text text-lighten-4">Conciviles es una empresa ... working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+                    <h5 class="white-text">Factor Diferenciador</h5>
+                    <p class="grey-text text-lighten-4">El Colegio provee una enseñanza de calidad, con docentes calificados, en una localización tranquila y ambientes adecuados para el desenvolvimiento de las actividades del alumno.</p>
                 </div>
                 <div class="col l3 s12">
-                    <h5 class="white-text">Settings</h5>
+                    <h5 class="white-text">Enlaces</h5>
                     <ul>
                         <li><a class="white-text" href="#!">Link 1</a></li>
                         <li><a class="white-text" href="#!">Link 2</a></li>
@@ -95,7 +99,7 @@
                     </ul>
                 </div>
                 <div class="col l3 s12">
-                    <h5 class="white-text">Connect</h5>
+                    <h5 class="white-text">Enlaces</h5>
                     <ul>
                         <li><a class="white-text" href="#!">Link 1</a></li>
                         <li><a class="white-text" href="#!">Link 2</a></li>

@@ -44,7 +44,9 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::post('/curso/editar', 'CourseController@update');
 
 	Route::get('/curso/{id}/eliminar', 'CourseController@delete');
-	
 
+	// Enrollment
+    Route::get('/matricula', 'EnrollmentController@index');
+    Route::get('/matricula/registrar', 'EnrollmentController@create');
 });
 

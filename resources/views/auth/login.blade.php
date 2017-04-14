@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('padding-left-nav')
+@endsection
+
 @section('content')
 <div class="card">
     <div class="card-content">
