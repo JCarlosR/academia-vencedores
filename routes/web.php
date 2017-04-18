@@ -21,15 +21,13 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => 'auth'], function () {
 
-	//Alumnos
+	// Students
 	Route::get('/alumnos', 'StudentController@index');
 	Route::post('/alumnos', 'StudentController@store');
-
 	Route::post('/alumno/editar', 'StudentController@update');
-
 	Route::get('/alumno/{id}/eliminar', 'StudentController@delete');
 
-	//DOCENTES
+	// Teachers
 	Route::get('/docentes', 'TeacherController@index');
 	Route::post('/docentes', 'TeacherController@store');
 
@@ -37,7 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::get('/docente/{id}/eliminar', 'TeacherController@delete');
 
-	//CURSOS
+	// Courses
 	Route::get('/cursos', 'CourseController@index');
 	Route::post('/cursos', 'CourseController@store');
 
@@ -48,5 +46,6 @@ Route::group(['middleware' => 'auth'], function () {
 	// Enrollment
     Route::get('/matricula', 'EnrollmentController@index');
     Route::get('/matricula/registrar', 'EnrollmentController@create');
+    Route::post('/matricula/registrar', 'EnrollmentController@store');
 });
 

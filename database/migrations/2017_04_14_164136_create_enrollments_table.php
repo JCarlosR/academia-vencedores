@@ -27,6 +27,9 @@ class CreateEnrollmentsTable extends Migration
             $table->float('monthly_payment');
             $table->float('uniform_payment');
 
+            // courses list (comma separated)
+            $table->string('courses');
+
             $table->timestamps();
         });
     }
