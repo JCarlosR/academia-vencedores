@@ -102,7 +102,7 @@
 					<div class="col s12 ">
 					  <div class="card">
 					    <div class="card-image">
-					    <img id="blah" src="/images/logdo.png" alt="your image" />		    
+					    <img id="blah" src="/images/logo.jpg" alt="your image" />
 					    </div>
 					  </div>
 					</div>

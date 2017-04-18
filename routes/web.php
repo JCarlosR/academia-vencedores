@@ -47,5 +47,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/matricula', 'EnrollmentController@index');
     Route::get('/matricula/registrar', 'EnrollmentController@create');
     Route::post('/matricula/registrar', 'EnrollmentController@store');
+
+    // Reports
+    Route::get('/reportes', 'ReportController@index');
 });
 
