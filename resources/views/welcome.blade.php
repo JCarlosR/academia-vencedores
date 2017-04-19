@@ -32,7 +32,7 @@
             <h1 class="header center orange-text">
                 Bienvenido a la Academia
                 <br>
-                Pre-Policiar
+                Pre-Policial
                 <br>
                 "Los Vencedores"
             </h1>
