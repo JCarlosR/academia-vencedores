@@ -13,7 +13,8 @@ class ReportController extends Controller
     public function students()
     {
         $students = Student::all();
-        $maleCount = 0; $femaleCount = 0;
+        $maleCount = 0;
+        $femaleCount = 0;
 
         foreach ($students as $student) {
             if ($student->sex == 'M')
@@ -34,14 +35,17 @@ class ReportController extends Controller
         $names = [];
         $counts = [];
 
-        foreach ($enrollments as $enrollment) {
-            $selected_courses_id = explode(',', $enrollment->courses);
+
+        foreach ($courses as $course) {
             $count = 0;
-            foreach ($courses as $course) {
-                $names[] = $course->name;
+            $names[] = $course->name;
+
+            foreach ($enrollments as $enrollment) {
+                $selected_courses_id = explode(',', $enrollment->courses);
                 if (in_array($course->id, $selected_courses_id))
                     ++$count;
             }
+
             $counts[] = $count;
         }
 
@@ -54,7 +58,7 @@ class ReportController extends Controller
     {
         $enrollments = Enrollment::all();
 
-        $counts = [0,0,0];
+        $counts = [0, 0, 0];
 
         foreach ($enrollments as $enrollment) {
             if ($enrollment->level == 'Básico')
