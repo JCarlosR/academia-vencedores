@@ -2,12 +2,14 @@
 
 @section('links')
     <link rel="stylesheet" href="/css/students/elements-form.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 @endsection
+
 @section('content')
 
 <!-- TABLA ALUMNOS -->
 <h4>ALUMNOS</h4>
-<table class="table-bordered">
+<table class="table-bordered" id="students-table">
         <thead>
           <tr>
               <th>Nombre</th>
@@ -48,6 +50,7 @@
         @endforeach
         </tbody>
       </table>
+
 <!-- MODAL EDITAR -->
 <div id="modal_edit" class="modal modal-fixed-footer lg">	
 	<form action="/alumno/editar" method="POST" enctype="multipart/form-data">
@@ -231,5 +234,6 @@
 @endsection
 
 @section('scripts')
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <script src="/js/students/elements-form.js"></script>
 @endsection

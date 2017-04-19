@@ -1,8 +1,15 @@
+$(document).ready(function() {
+    // select sex
+    $('select').material_select();
 
-	//select sexo
-      $(document).ready(function() {
-		    $('select').material_select();
-		  });
+    // initialize data tables
+    $('#students-table').DataTable({
+        "language": {
+            "url": "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Spanish.json"
+        }
+    });
+});
+
     //select date
       $('.datepicker').pickadate({
 

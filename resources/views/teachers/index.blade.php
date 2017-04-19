@@ -2,12 +2,13 @@
 
 @section('links')
     <link rel="stylesheet" href="/css/teachers/elements-form.css">
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 @endsection
-@section('content')
 
+@section('content')
 <!-- TABLA ALUMNOS -->
 <h4>DOCENTES</h4>
-<table class="table-bordered">
+<table class="table-bordered" id="teachers-table">
         <thead>
           <tr>
               <th>Nombre</th>
@@ -222,5 +223,6 @@
 @endsection
 
 @section('scripts')
-    <script src="/js/teachers/elements-form.js"></script>
+	<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+	<script src="/js/teachers/elements-form.js"></script>
 @endsection
