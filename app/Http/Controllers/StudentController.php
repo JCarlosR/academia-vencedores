@@ -7,8 +7,6 @@ use App\Student;
 use Illuminate\Support\Facades\Log;
 use Intervention\Image\Facades\Image;
 
-
-
 class StudentController extends Controller
 {
     public function index()
@@ -55,6 +53,7 @@ class StudentController extends Controller
 
         return back()->with('notification','Usuario registrado exitosamente');
     }
+
     public function update(Request $request)
     {
         $id = $request->input('id');
@@ -73,6 +72,7 @@ class StudentController extends Controller
                    ->resize(250,250)
                    ->save('images/students/'. $file_name);
         }
+
         //guardamos en la bd
         $students->name = $request->input('name');
         $students->lastName = $request->input('lastName');
@@ -86,14 +86,13 @@ class StudentController extends Controller
         $students->save();
 
         return back();
-        
     }
+
     public function delete($id)
     {
         $students = Student::find($id);
         $students->delete();
         return back();
     }
-    
     
 }

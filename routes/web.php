@@ -48,6 +48,11 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/matricula/registrar', 'EnrollmentController@create');
     Route::post('/matricula/registrar', 'EnrollmentController@store');
 
+    // Notes
+    Route::get('/notas', 'NotesController@index');
+    Route::get('/notas/registrar', 'NotesController@create');
+    Route::post('/notas/registrar', 'NotesController@store');
+
     // Reports
     Route::get('/reportes', 'ReportController@index');
 });

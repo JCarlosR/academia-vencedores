@@ -48,6 +48,7 @@
             <li><a class="waves-effect" href="/docentes">Docente<i class="material-icons">person_pin</i></a></li>
             <li><a class="waves-effect" href="/cursos">Curso<i class="material-icons">library_books</i></a></li>
             <li><a class="waves-effect" href="/matricula">Matricula<i class="material-icons">mode_edit</i></a></li>
+            <li><a class="waves-effect" href="/notas">Notas<i class="material-icons">web</i></a></li>
             <li><a class="waves-effect" href="/reportes">Gráficos<i class="material-icons">equalizer</i></a></li>
 
             <li class="divider"></li>
