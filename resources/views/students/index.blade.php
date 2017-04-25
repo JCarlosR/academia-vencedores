@@ -133,11 +133,18 @@
 	</form>	
 </div>
 <!-- MODAL REGISTRO -->
-<div id="modal_student" class="modal modal-fixed-footer lg">	
-	<form action="" method="POST" enctype="multipart/form-data">
+<div id="modal_student" class="modal modal-fixed-footer lg">
+
+    <form action="" method="POST" enctype="multipart/form-data">
 		{{ csrf_field() }}
+        <input type="hidden" name="input_timer" id="input-timer" value="{{ old('input_timer', '00:00:00.000') }}">
+
 		<div class="modal-content">
 			<h8 class="center-align">REGISTRAR ALUMNO</h8>
+            <div class="card-panel blue-text text-darken-2">
+                <strong>Timer:</strong> <span id="alert-timer">00:00:00.000</span>
+            </div>
+
 			<div class="row">
 				<div class="col s8">
 					<div class="input-field">
