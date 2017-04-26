@@ -13,6 +13,27 @@
 
 </head>
 <body>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>Introducción</h4>
+            <p>
+                Bienvenido al sistema de información web de la academia pre-policial "Los Vencedores".
+            </p>
+            <p>Para esta versión se presentan las secciones siguientes:</p>
+            <ul>
+                <li>Registro de Alumnos</li>
+                <li>Registro de Docentes</li>
+                <li>Registro de Matrícula</li>
+                <li>Registro de Notas</li>
+                <li>Reportes y Gráficos</li>
+            </ul>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+    </div>
+
     <nav class="light-blue lighten-1" role="navigation">
         <div class="nav-wrapper container">
             <a id="logo-container" href="{{ url('/') }}" class="brand-logo">{{ config('app.name', 'Laravel') }}</a>
@@ -43,6 +64,9 @@
             <div class="row center">
                 <a href="{{ route('login') }}" id="download-button" class="btn-large waves-effect waves-light orange">
                     Accede al sistema
+                </a>
+                <a class="waves-effect waves-light btn-large" href="#modal1">
+                    Ayuda en línea
                 </a>
             </div>
             
@@ -121,6 +145,10 @@
     integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+    <script>
+        $('.modal').modal();
+    </script>
+
     <!-- Start of losvencedores Zendesk Widget script -->
     <script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(e){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var e=this.createElement("script");n&&(this.domain=n),e.id="js-iframe-async",e.src="https://assets.zendesk.com/embeddable_framework/main.js",this.t=+new Date,this.zendeskHost="losvencedores.zendesk.com",this.zEQueue=a,this.body.appendChild(e)},o.write('<body onload="document._l();">'),o.close()}();
         /*]]>*/</script>
